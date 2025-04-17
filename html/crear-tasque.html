@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crear tasque</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <section>
+            <article class="menu">
+                <h2 class="centrar">Menu</h2>
+                <ol class="listamenu">
+                    <li>Llistat d'activitats</li>
+                    <br>
+                    <li>Crear tasques</li>
+                    <br>
+                    <li>Gestio de Categories</li>
+                </ol>
+            </article>     
+            <article class="articlellista">
+                <h1 class="centrar">Crear nova Tasca</h1>
+                <nav class="navfor">
+                    <form action="formularicrear">
+                        <label for="titol">Titol:</label>
+                        <input type="text" id="titol">
+
+                        <label for="titol">Descripcio:</label>
+                        <textarea name="descripcio" id="descripcio"></textarea>
+
+                        <label for="titol">Data:</label>
+                        <input type="date">
+
+                        <label for="titol">Categoria:</label>
+                        <select name="Categoria" id="categoria"></select>
+
+                        <label for="titol">Prioritat:</label>
+                        <select name="Prioritat" id="prioritat">
+                            <option value="baixa">Baixa</option>
+                            <option value="mitja">Mitja</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                        <button id="crear">Crear tasca</button>
+                    </form>                        
+                </nav>
+            </article>
+        </section>
+    </body>
+</html>
