@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="/css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <title>Llista d'activitats</title>
     </head>
     <body>
@@ -22,7 +23,7 @@
             <h1 class="centrar">Llistat d'activitats</h1>
             <nav class="navcrearcercar">
                 <div class="divcrear">
-                    <button id="Crear">Crear Nova Tasca</button>
+                    <a href="/html/crear-tasque.html"><button id="Crear">Crear Nova Tasca</button></a>
                 </div>
                 <div class="divcrear">
                     <input type="text" placeholder="Nom del arxiu">
@@ -36,9 +37,10 @@
                 </div>
                 <h2>Tasques acabades</h2>
                 <div id="tasques acabades">
-
                 </div>
             </nav>
+            <canvas id="myChart" width="400" height="100"></canvas>
+            <script src="/js/grafics.js"></script>
         </article>
     </section>
        
