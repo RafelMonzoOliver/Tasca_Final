@@ -104,3 +104,26 @@ form{
     border-radius: 5px;
     margin-left: 40%;
 }
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+textarea{
+    border-radius: 5px;
+    transition: ease background-color 0.3s;
+}
+
+textarea:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+select{
+    border-radius: 5px;
+    transition: ease background-color 0.3s;
+}
+
+select:hover{
+    background-color: rgb(238, 238, 238);
+}
