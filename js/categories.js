@@ -1,3 +1,5 @@
+export const llistavcat = [];
+
 export class Categories{
     constructor(nom,color){
         this.nom = nom;
