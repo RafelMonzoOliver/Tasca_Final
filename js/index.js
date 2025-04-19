@@ -25,3 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reset();
     });
 });
+
+function mostrarLlista(){
+    const resultat = document.getElementById("articlellista");
+    resultat.innerHTML = "";
+
+    if(llistavcat.length === 0){
+        resultat.innerHTML = `Esta vacio`;
+        return;
+    }
+
+    llistavcat.forEach((novaCategoria,index)=>{
+        const articlediv = document.createElement("div");
+        articlediv.classList.add("articlediv");
+
+        articlediv.innerHTML = `<div>${novaCategoria.nom},${novaCategoria.color}</div>`;
+        resultat.appendChild
+    });
+
+}
