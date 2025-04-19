@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formcateg");
     const nomInput = document.getElementById("nomcategoria");
     const colorInput = document.getElementById("color");
+    const llista = document.getElementById("llistacat");
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -16,31 +17,47 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const novaCategoria = new Categories(nom, color);
-        llistavcat.push(novaCategoria);
+        const categoria = new Categories(nom, color);
+        llistavcat.push(categoria);
+        mostrarCategoria(categoria);
 
-        console.log("Categoria afegida:", novaCategoria);
+        console.log("Categoria afegida:", categoria);
         console.log("Llista actual:", llistavcat);
 
         form.reset();
     });
+
+    function mostrarCategoria(categoria){
+        const index = llistavcat.indexOf(categoria); // obtener índice actual
+        const categoriaDiv = document.createElement("div");
+        categoriaDiv.classList.add("divlist");
+        categoriaDiv.innerHTML = `
+            <nav class="navlist">
+               <span class="colorcercle" style="background-color:${categoria.color}"></span> ${categoria.nom}
+            </nav>
+            <nav class="navlist">
+                <button class="borrarelement">borrar</button>
+            </nav>
+        `;
+    
+        const borrarcat = categoriaDiv.querySelector(".borrarelement");
+        borrarcat.addEventListener("click", () => {
+            categoriaDiv.remove();
+    
+            const idx = llistavcat.indexOf(categoria);
+            if (idx > -1) {
+                llistavcat.splice(idx, 1);
+            }
+    
+            console.log("Categoria eliminada:", categoria);
+            console.log("Llista actual:", llistavcat);
+        });
+    
+        llista.appendChild(categoriaDiv);
+    }
+    
 });
 
-function mostrarLlista(){
-    const resultat = document.getElementById("articlellista");
-    resultat.innerHTML = "";
 
-    if(llistavcat.length === 0){
-        resultat.innerHTML = `Esta vacio`;
-        return;
-    }
 
-    llistavcat.forEach((novaCategoria,index)=>{
-        const articlediv = document.createElement("div");
-        articlediv.classList.add("articlediv");
 
-        articlediv.innerHTML = `<div>${novaCategoria.nom},${novaCategoria.color}</div>`;
-        resultat.appendChild
-    });
-
-}
