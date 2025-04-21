@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        const nommin = nom.toLowerCase();
+        const repet = llistavcat.some(cat => cat.nom.toLowerCase() === nommin);
+
+        if(repet){
+            console.error("No pot repetir categories");
+            return;
+        }
+
         const categoria = new Categories(nom, color);
         llistavcat.push(categoria);
         mostrarCategoria(categoria);
@@ -44,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </nav>
             <nav class="navlist">
                 <button class="borrarelement">borrar</button>
-            </nav>
-        `;
+            </nav>`
+        ;
 
         const borrarcat = categoriaDiv.querySelector(".borrarelement");
         borrarcat.addEventListener("click", () => {

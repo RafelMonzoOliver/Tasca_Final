@@ -1,4 +1,4 @@
-const llistaTasques = [];
+export const llistaTasques = JSON.parse(localStorage.getItem("tasques")) || [];
 
 export class Tasca{
     constructor(titol,descripcio,data,categoria,prioritat){
