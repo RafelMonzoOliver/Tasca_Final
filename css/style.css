@@ -167,3 +167,33 @@ select:hover{
 .borrarelement{
     background-color: rgb(167, 44, 44);
 }
+
+.navtasca{
+    border-radius: 10px;
+    width: 300px;
+}
+
+.divtasca{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navtascaalt{
+    border-radius: 10px;
+    width: 300px;
+    background-color: rgb(255, 141, 141);
+}
+
+.navtascamid{
+    border-radius: 10px;
+    width: 300px;
+    background-color: rgb(255, 247, 141);
+}
+
+.navtascabaix{
+    border-radius: 10px;
+    width: 300px;
+    background-color: rgb(141, 255, 175);
+}
