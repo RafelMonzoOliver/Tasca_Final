@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const prioritat = document.getElementById("prioritat").value;
 
             if (!titol || !descripcio || !data || !categoria || !prioritat) {
-                alert("Omple tots els camps!");
+                console.error("Omple tots els camps!");
                 return;
             }
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             llistaTasques.push(novaTasca);
             localStorage.setItem("tasques", JSON.stringify(llistaTasques));
 
-            alert("Tasca creada correctament!");
+            console.log("Tasca creada correctament!");
             form.reset();
         });
     }
