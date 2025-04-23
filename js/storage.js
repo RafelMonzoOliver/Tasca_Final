@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 tasquesGuardades.splice(index, 1);
                 localStorage.setItem("tasques", JSON.stringify(tasquesGuardades));
                 location.reload();
+                console.log("Tasca borrada");
             });
 
             if (tasca.acabada) {
