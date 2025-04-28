@@ -1,4 +1,4 @@
-import { Categories, llistavcat } from './Categories.js';
+import { Categories, llistavcat } from './categories.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formcateg");

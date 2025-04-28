@@ -1,4 +1,4 @@
-import { Categories } from './Categories.js';
+import { Categories } from './categories.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const selectCategoria = document.getElementById("categoria");
