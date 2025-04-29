@@ -1,4 +1,6 @@
+import { Categories } from './categories.js';
 import { Tasca, llistaTasques } from './fom-tasca.js';
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formularicrear");
@@ -76,7 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>${tasca.data}</p>
                 </div>
                 <div class="divtasca">
-                    <p>${tasca.categoria}</p>
+                    <div style="background-color: ${Categories.color}">
+                        <p>${tasca.categoria}</p>
+                    </div>
+
                 </div>
                 <div class="divtasca">
                     <p><strong>Descripció:</strong> ${tasca.descripcio}</p>
