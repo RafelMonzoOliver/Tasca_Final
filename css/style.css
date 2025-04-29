@@ -24,6 +24,7 @@ section{
 .listamenu{
     margin-right: 5px;
     list-style-type: none;
+    
 }
 
 .articlellista{
@@ -93,6 +94,14 @@ form{
     width: 300px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.tasques{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 500px;
+    border-radius: 5px;
 }
 
 .navfor{

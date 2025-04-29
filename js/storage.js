@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>${tasca.data}</p>
                 </div>
                 <div class="divtasca">
-                    <div style="background-color: ${Categories.color}">
-                        <p>${tasca.categoria}</p>
+                    <div style="background-color: ${tasca.categoria.color};border-radius:5px;">
+                        <p style="margin:5px;">${tasca.categoria.nom}</p>
                     </div>
 
                 </div>
