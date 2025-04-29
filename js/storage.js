@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button class="botoBorrar">🗑️</button>
                 </div>
             </nav>
-                
             `;
 
             const botoAcabar = tascaDiv.querySelector(".botoAcabar");
