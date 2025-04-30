@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const resposta = await fetch(`/json/${nomFitxer}.json`);
                 //en cas d'error si el fitxer no existeix
                 if (!resposta.ok) {
-                    throw new Error("No s'ha pogut carregar l'arxiu");
+                    console.error("No s'ha pogut carregar l'arxiu");
                 }
 
                 const tasquesDelFitxer = await resposta.json();
