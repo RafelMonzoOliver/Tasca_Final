@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
+                //per aixi fer un fetch del fitxer assignat
                 const resposta = await fetch(`/json/${nomFitxer}.json`);
                 //en cas d'error si el fitxer no existeix
                 if (!resposta.ok) {
