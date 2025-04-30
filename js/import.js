@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     //pujar les tasques a la taula
 
                     tasquesActuals.push({
-                        titol: tasca.titol || "Sense títol",
-                        descripcio: tasca.descripcio || "",
-                        data: tasca.data || "",
-                        categoria: tasca.categoria || null,
-                        prioritat: tasca.prioritat || "baixa",
-                        acabada: tasca.acabada || false
+                        titol: tasca.titol,
+                        descripcio: tasca.descripcio,
+                        data: tasca.data,
+                        categoria: tasca.categoria,
+                        prioritat: tasca.prioritat,
+                        acabada: tasca.acabada
                     });
                 });
 
