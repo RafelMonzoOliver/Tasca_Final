@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 tasquesDelFitxer.forEach(tasca => {
 
                     //pujar les tasques a la taula
+
                     tasquesActuals.push({
                         titol: tasca.titol || "Sense títol",
                         descripcio: tasca.descripcio || "",
