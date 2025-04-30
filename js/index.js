@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        //crear la categoria
         const categoria = new Categories(nom, color);
         llistavcat.push(categoria);
         mostrarCategoria(categoria);
@@ -42,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         form.reset();
     });
+
+    //perque es mostrin les categories una vegada son creades
 
     function mostrarCategoria(categoria){
         const categoriaDiv = document.createElement("div");
@@ -72,6 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
         llista.appendChild(categoriaDiv);
     }
 
+
+    //guardar la categoria en localStorage
     function guardarEnLocalStorage() {
         localStorage.setItem("categories", JSON.stringify(llistavcat));
     }

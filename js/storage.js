@@ -20,16 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+            //una vegada la tasca nova es creada
             const novaTasca = {
                 titol,
                 descripcio,
                 data,
                 categoria,
                 prioritat,
+                //sempre tendra el valor en false al ser creaeda,almenos si es crada per l'usuari
                 acabada: false
             };
 
+            //ficar les tasques a la llista
             llistaTasques.push(novaTasca);
+            //posar-ho a localStorage
             localStorage.setItem("tasques", JSON.stringify(llistaTasques));
 
             console.log("Tasca creada correctament!");
@@ -40,12 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const pendentsDiv = document.getElementById("Tasques pendents");
     const acabadesDiv = document.getElementById("tasques acabades");
 
+    //per mostrar les taules als divs que toca 
     if (pendentsDiv && acabadesDiv) {
         const tasquesGuardades = JSON.parse(localStorage.getItem("tasques")) || [];
 
         tasquesGuardades.forEach((tasca, index) => {
             const tascaDiv = document.createElement("div");
             tascaDiv.classList.add("divTasca");
+            //Per variar le color del div en cas de que la tasca tingui diferents prioritats
             switch(tasca.prioritat.toLowerCase()){
                 case "alta":
                     tascaDiv.style.backgroundColor = "#f8d7da";
@@ -102,11 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     location.reload();
                 });
             } else {
+                //Per posar la tasca com acabada y que totes les tasques acabdes tinguin menos opacitat
                 botoAcabar.disabled = true;
                 botoAcabar.style.backgroundColor = "#ccc";
                 tascaDiv.style.opacity = "40%";
             }
 
+            //per borrar les tasques
             const botoBorrar = tascaDiv.querySelector(".botoBorrar");
             botoBorrar.addEventListener("click", () => {
                 tasquesGuardades.splice(index, 1);
@@ -115,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Tasca borrada");
             });
 
+            //per modificar els divs on estan les tasques acabdes y pendents
             if (tasca.acabada) {
                 acabadesDiv.appendChild(tascaDiv);
             } else {

@@ -1,39 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const btnPujar = document.getElementById("pujar");
+    const buttonPujar = document.getElementById("pujar");
     const inputJSON = document.getElementById("inputJSON");
 
-        btnPujar.addEventListener("click", async () => {
+        buttonPujar.addEventListener("click", async () => {
             const nomFitxer = inputJSON.value.trim();
+            //en cas de no posar nom al fitxer
             if (!nomFitxer) {
-                console.error("Introdueix el nom del fitxe");
+                console.error("Introdueix el nom del fitxer");
                 return;
             }
 
             try {
                 const resposta = await fetch(`/json/${nomFitxer}.json`);
-                if (!resposta.ok) throw new Error("No s'ha pogut carregar l'arxiu");
+                //en cas d'error si el fitxer no existeix
+                if (!resposta.ok) {
+                    throw new Error("No s'ha pogut carregar l'arxiu");
+                }
 
                 const tasquesDelFitxer = await resposta.json();
 
+                //llista de importar
                 const tasquesActuals = JSON.parse(localStorage.getItem("tasques")) || [];
                 tasquesDelFitxer.forEach(tasca => {
 
+                    //pujar les tasques a la taula
                     tasquesActuals.push({
                         titol: tasca.titol || "Sense títol",
                         descripcio: tasca.descripcio || "",
                         data: tasca.data || "",
-                        categoria: tasca.categoria || "Sense categoria",
+                        categoria: tasca.categoria || null,
                         prioritat: tasca.prioritat || "baixa",
                         acabada: tasca.acabada || false
                     });
                 });
 
+                //Per guaredar les tasques al localStorage
                 localStorage.setItem("tasques", JSON.stringify(tasquesActuals));
                 console.log("Tasques carregades correctament!");
                 location.reload(); 
             } catch (error) {
+                //en cas de que algo no funcioni
                 console.error("Error carregant l'arxiu:", error);
-                console.error("Error en carregar l'arxiu. Comprova que existeix i està ben formatat.");
             }
         });
 });
