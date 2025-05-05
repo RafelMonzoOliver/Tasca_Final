@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const nomFitxer = inputJSON.value.trim();
             //en cas de no posar nom al fitxer
             if (!nomFitxer) {
-                console.error("Introdueix el nom del fitxer");
+                console.error("Posa el nom del fitxer");
                 return;
             }
 
@@ -15,25 +15,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 const resposta = await fetch(`/json/${nomFitxer}.json`);
                 //en cas d'error si el fitxer no existeix
                 if (!resposta.ok) {
-                    throw new Error("No s'ha pogut carregar l'arxiu");
+                    console.error("No s'ha pogut carregar l'arxiu");
                 }
 
                 const tasquesDelFitxer = await resposta.json();
 
                 //llista de importar
                 const tasquesActuals = JSON.parse(localStorage.getItem("tasques")) || [];
+
                 tasquesDelFitxer.forEach(tasca => {
-
-                    //pujar les tasques a la taula
-
-                    tasquesActuals.push({
-                        titol: tasca.titol || "Sense títol",
-                        descripcio: tasca.descripcio || "",
-                        data: tasca.data || "",
-                        categoria: tasca.categoria || null,
-                        prioritat: tasca.prioritat || "baixa",
-                        acabada: tasca.acabada || false
-                    });
+                    
+                    //per comprobar si existeix la tasca
+                    const titol = tasca.titol?.trim() || "Sense títol";
+                    const existeix = tasquesActuals.some(t => t.titol.trim().toLowerCase() === titol.toLowerCase());
+                
+                    //en cas de que no existeixi la tascamla cream
+                    if (!existeix) {
+                        tasquesActuals.push({
+                            titol,
+                            descripcio: tasca.descripcio || "",
+                            data: tasca.data || "",
+                            categoria: tasca.categoria || "Sense categoria",
+                            prioritat: tasca.prioritat || "baixa",
+                            acabada: tasca.acabada || false
+                        });
+                    } else {
+                        console.error(`Tasca "${titol}" ja existeix i no s'ha afegit.`);
+                    }
                 });
 
                 //Per guaredar les tasques al localStorage
