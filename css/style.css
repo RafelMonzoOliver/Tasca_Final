@@ -1,26 +1,24 @@
-body{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+html, body{
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: rgb(247, 245, 245);
 }
 
-.menu{
-    background-color: rgb(121, 121, 255);
-    color: white;
-    position: fixed;
-    width: 150px;
+section{
+    display: flex;
+    height: 100%;
 }
 
 .menu,.articlellista{
     height: 100%;
 }
 
-.placeholderDivSeparacion{
-    width: 1500px;
-    height: 1000px;
+.menu{
+    background-color: rgb(121, 121, 255);
+    color: white;
+    margin-left: -8px;
+    margin-top: -8px;
 }
 
 .listamenu{
@@ -31,6 +29,7 @@ body{
 
 .articlellista{
     align-items: center;
+    width: 100%;
     height: 100%;
     margin-top: -7px;
     margin-right: -8px;
