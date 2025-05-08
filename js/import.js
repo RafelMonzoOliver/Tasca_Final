@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const tasquesActuals = JSON.parse(localStorage.getItem("tasques")) || [];
 
                 tasquesDelFitxer.forEach(tasca => {
+<<<<<<< HEAD
                     
                     //per comprobar si existeix la tasca
                     const titol = tasca.titol?.trim() || "Sense títol";
@@ -42,6 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         console.error(`Tasca "${titol}" ja existeix i no s'ha afegit.`);
                     }
+=======
+
+                    //pujar les tasques a la taula
+
+                    tasquesActuals.push({
+                        titol: tasca.titol,
+                        descripcio: tasca.descripcio,
+                        data: tasca.data,
+                        categoria: tasca.categoria,
+                        prioritat: tasca.prioritat,
+                        acabada: tasca.acabada
+                    });
+>>>>>>> 913c886b2e2b0e4f0593873d6662a8561e19f7ff
                 });
 
                 //Per guaredar les tasques al localStorage
